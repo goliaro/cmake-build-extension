@@ -36,7 +36,7 @@ class CMakeExtension(Extension):
         cmake_build_type: str = "Release",
         cmake_component: str = None,
         cmake_depends_on: List[str] = (),
-        cmake_parallel_jobs: int = 1,
+        cmake_parallel_jobs: int = None,
         expose_binaries: List[str] = (),
         cmake_generator: str = "Ninja",
     ):

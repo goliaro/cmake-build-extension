@@ -169,8 +169,7 @@ class BuildExtension(build_ext):
         # CMake build arguments
         build_args = ["--config", ext.cmake_build_type]
 
-        # If CMAKE_BUILD_PARALLEL_LEVEL is not set, apply the corresponding user settings.
-        if "CMAKE_BUILD_PARALLEL_LEVEL" not in os.environ:
+        if ext.cmake_parallel_jobs is not None:
             build_args += [f"-j{ext.cmake_parallel_jobs}"]
 
         if platform.system() == "Windows":
