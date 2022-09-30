@@ -169,6 +169,9 @@ class BuildExtension(build_ext):
         # CMake build arguments
         build_args = ["--config", ext.cmake_build_type]
 
+        if ext.cmake_parallel_jobs is not None:
+            build_args += [f"-j{ext.cmake_parallel_jobs}"]
+
         if platform.system() == "Windows":
 
             configure_args += []

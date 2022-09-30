@@ -3,9 +3,9 @@ requires = [
     "wheel",
     # Check the updated version pinning requirements in:
     # https://github.com/pypa/setuptools_scm
-    "setuptools",
-    "setuptools_scm[toml]",
-    "cmake_build_extension",
+    "setuptools>=45",
+    "setuptools_scm[toml]>=6.0",
+    # "cmake_build_extension", # EXPERIMENT: It seems that building the examples is downloading the last release instead of using the local copy.
     "numpy",
     "pybind11",
 ]

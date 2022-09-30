@@ -20,6 +20,7 @@ class CMakeExtension(Extension):
         cmake_build_type: The default build type of the CMake project.
         cmake_component: The name of component to install. Defaults to all components.
         cmake_depends_on: List of dependency packages containing required CMake projects.
+        cmake_parallel_jobs: Number of parallel build jobs that CMake can run, defaults to 1.
         expose_binaries: List of binary paths to expose, relative to top-level directory.
         cmake_generator: The generator to be used by CMake. Defaults to Ninja.
     """
@@ -35,6 +36,7 @@ class CMakeExtension(Extension):
         cmake_build_type: str = "Release",
         cmake_component: str = None,
         cmake_depends_on: List[str] = (),
+        cmake_parallel_jobs: int = None,
         expose_binaries: List[str] = (),
         cmake_generator: str = "Ninja",
     ):
@@ -55,5 +57,6 @@ class CMakeExtension(Extension):
         self.source_dir = str(Path(source_dir).absolute())
         self.cmake_configure_options = cmake_configure_options
         self.cmake_component = cmake_component
+        self.cmake_parallel_jobs = cmake_parallel_jobs
         self.expose_binaries = expose_binaries
         self.cmake_generator = cmake_generator
